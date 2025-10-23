@@ -34,13 +34,13 @@ public class User {
 
     private String fullName;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER) // Çoxdan Çoxa əlaqə
     @JoinTable(
-            name="user_roles",
-            joinColumns = @JoinColumn(name="user_id")
-            ,inverseJoinColumns = @JoinColumn(name="role_id")
+            name = "user_roles", // Aralıq (Join) cədvəlinin adı
+            joinColumns = @JoinColumn(name = "user_id"), // User cədvəlinin açarı
+            inverseJoinColumns = @JoinColumn(name = "role_id") // Role cədvəlinin açarı
     )
-    private Set<Role>roles=new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Account> accounts = new ArrayList<>();
