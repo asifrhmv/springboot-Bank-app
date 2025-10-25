@@ -1,0 +1,198 @@
+:root {
+    color-scheme: light dark;
+    --bg: #f4f6fb;
+    --card: #ffffffdd;
+    --text: #1f2933;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --border: #d7dde7;
+    --success: #0f7b3c;
+    --error: #c2410c;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(14, 116, 144, 0.08)), var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+header {
+    background: transparent;
+}
+
+header h1 {
+    margin-bottom: 0.25rem;
+}
+
+.subtitle {
+    margin: 0;
+    color: #475569;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1.5rem 3rem;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(6px);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.panel {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 500;
+}
+
+input,
+button,
+textarea {
+    font: inherit;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #f8fafc;
+}
+
+button {
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover,
+button:focus {
+    background: var(--accent-hover);
+}
+
+.status {
+    min-height: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.status.success {
+    color: var(--success);
+}
+
+.status.error {
+    color: var(--error);
+}
+
+.accounts-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.accounts-list.empty {
+    display: block;
+}
+
+.account-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    background: rgba(248, 250, 252, 0.9);
+    display: grid;
+    gap: 0.25rem;
+    line-height: 1.4;
+}
+
+.token-display {
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px dashed var(--border);
+    background: rgba(148, 163, 184, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#token-value {
+    font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+    word-break: break-all;
+}
+
+footer {
+    color: #64748b;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f172a;
+        --card: rgba(15, 23, 42, 0.8);
+        --text: #e2e8f0;
+        --border: rgba(148, 163, 184, 0.3);
+    }
+
+    .panel {
+        background: rgba(30, 41, 59, 0.8);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    textarea {
+        background: rgba(15, 23, 42, 0.6);
+        color: inherit;
+    }
+}

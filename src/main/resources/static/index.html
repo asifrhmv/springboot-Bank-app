@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Banking Portal</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Online Banking Portal</h1>
+        <p class="subtitle">Manage registration, accounts and money transfers in one place.</p>
+    </header>
+
+    <main>
+        <section class="card" id="auth-section">
+            <h2>User Authentication</h2>
+            <div class="grid">
+                <form id="register-form" class="panel">
+                    <h3>Create an Account</h3>
+                    <label>
+                        Full name
+                        <input type="text" name="fullName" placeholder="Aysel Əliyeva" required />
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="aysel@example.com" required />
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password" required />
+                    </label>
+                    <button type="submit">Register</button>
+                    <p class="status" id="register-status"></p>
+                </form>
+
+                <form id="login-form" class="panel">
+                    <h3>Log in</h3>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="aysel@example.com" required />
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password" required />
+                    </label>
+                    <button type="submit">Login</button>
+                    <p class="status" id="login-status"></p>
+                </form>
+            </div>
+
+            <div class="token-display" id="token-display" hidden>
+                <h3>Active Session</h3>
+                <p><strong>Token:</strong> <span id="token-value"></span></p>
+                <button id="logout-btn" type="button">Log out</button>
+            </div>
+        </section>
+
+        <section class="card" id="accounts-section">
+            <h2>Account Management</h2>
+            <div class="grid">
+                <form id="fetch-accounts-form" class="panel">
+                    <h3>Load Accounts</h3>
+                    <label>
+                        User ID
+                        <input type="number" name="userId" min="1" placeholder="1" required />
+                    </label>
+                    <button type="submit">Fetch Accounts</button>
+                    <p class="status" id="fetch-accounts-status"></p>
+                </form>
+
+                <form id="create-account-form" class="panel">
+                    <h3>Create Account</h3>
+                    <label>
+                        User ID
+                        <input type="number" name="userId" min="1" placeholder="1" required />
+                    </label>
+                    <label>
+                        Currency
+                        <input type="text" name="currency" placeholder="AZN" maxlength="3" required />
+                    </label>
+                    <label>
+                        Initial Balance
+                        <input type="number" name="initialBalance" step="0.01" min="0" placeholder="100" required />
+                    </label>
+                    <button type="submit">Create</button>
+                    <p class="status" id="create-account-status"></p>
+                </form>
+            </div>
+
+            <div class="panel">
+                <h3>Accounts</h3>
+                <div id="accounts-list" class="accounts-list empty">
+                    <p>No accounts loaded yet. Use &ldquo;Load Accounts&rdquo; to see them.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="transfer-section">
+            <h2>Money Transfer</h2>
+            <form id="transfer-form" class="panel">
+                <div class="grid">
+                    <label>
+                        Sender Account ID
+                        <input type="number" name="senderAccountId" min="1" placeholder="1" required />
+                    </label>
+                    <label>
+                        Receiver Account ID
+                        <input type="number" name="receiverAccountId" min="1" placeholder="2" required />
+                    </label>
+                    <label>
+                        Amount
+                        <input type="number" name="amount" step="0.01" min="0.01" placeholder="50" required />
+                    </label>
+                    <label>
+                        Description
+                        <input type="text" name="description" placeholder="Rent payment" />
+                    </label>
+                </div>
+                <button type="submit">Send money</button>
+                <p class="status" id="transfer-status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built for the Spring Boot Online Banking API. Use a running backend at the same origin.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
